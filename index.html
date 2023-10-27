@@ -8,8 +8,23 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <button id="resize">Change grid</button>
-    <div id="container">
+    <h1>Etch a Sketch</h1>
+    <div id="opt">
+        <div>Change Grid:</div>
+        <input id="grid" type="range" min="5" max="50" value="16"><span>16</span>
+        <button id="resize">OK</button>
+        <hr>
+        <span>Select color:</span>
+        <input type="color" id="color-pick" value="#00FFFF">
+        <!--<hr>
+        <div>Color mode:</div>
+        <form>
+            <input type="radio" id="mode-normal" value="n" name="mode" checked><label>Normal<br></label>
+            <input type="radio" id="mode-degrade" value="d" name="mode"><label>Degrade<br></label>
+            <input type="radio" id="mode-rainbow" value="r" name="mode"><label>Rainbow<br></label>
+        </form>-->
+    </div>
+    <div id="container"  draggable="false">
     </div>
 </body>
 </html>
