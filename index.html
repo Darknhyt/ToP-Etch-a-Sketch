@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
+    <link rel="shortcut icon" href="EaS.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Etch a Sketch</h1>
-    <div id="opt">
-        <div>Change Grid:</div>
-        <input id="grid" type="range" min="5" max="50" value="16"><span>16</span>
+    <div id="general" class="opt">
+        <span>Change Grid</span><div>16</div>
+        <input id="grid" type="range" min="5" max="50" value="16">
         <button id="resize">OK</button>
-        <hr>
-        <span>Select color:</span>
-        <input type="color" id="color-pick" value="#00FFFF"><br>
-        <div id="default-color"></div>
-        <!--<hr>
-        <div>Color mode:</div>
+        <div>Paint Mode</div>
         <form>
             <input type="radio" id="mode-normal" value="n" name="mode" checked><label>Normal<br></label>
-            <input type="radio" id="mode-degrade" value="d" name="mode"><label>Degrade<br></label>
-            <input type="radio" id="mode-rainbow" value="r" name="mode"><label>Rainbow<br></label>
-        </form>-->
+            <input type="radio" id="mode-degrade" value="a" name="mode"><label>Auto<br></label>
+        </form>
     </div>
-    <div id="container"  draggable="false">
+    <div id="color" class="opt">
+        <div>Color</div>
+        <div id="default-color"></div>
+        <div>Custom</div>
+        <input type="color" id="color-pick" value="#FFFFFF">
+    </div>
+    <div id="main">
+    <h1>Etch a Sketch</h1>
+    <div id="container">
+    </div>
     </div>
 </body>
 </html>

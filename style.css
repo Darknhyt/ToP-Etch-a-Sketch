@@ -1,5 +1,5 @@
 :root {
-    --color: #00FFFF;
+    --color: #FFFFFF;
 }
 body {
     background-image: radial-gradient(circle, var(--color),black 70%);
@@ -20,7 +20,7 @@ body {
 }
 
 .row {
-    cursor: crosshair;
+    cursor: cell;
     background-color:black;
     flex: 1;
     display: flex;
@@ -31,7 +31,7 @@ body {
 }
 .box:hover{
     transform: scale(1.02);
-    outline: 3px groove;
+    outline: 4px ridge;
 }
 
 button{
@@ -51,22 +51,64 @@ button:hover{
 }
 
 h1{
-    position: fixed;
-    top: 0;
+    margin: 0;
+    text-align: center;
+    color: var(--color);
+    text-shadow: 3px 2px black;
 }
 
-#opt{
+.opt{
     position: absolute;
     background-color: rgb(0, 0, 0, 0.7);
     padding: 12px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+#color {
     left: 5px;
+    top: 80px;
+
+}
+#general {
+    right: 5px;
     top: 80px;
 }
 
+#color-pick{
+    padding: 0px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+#color-pick:hover{
+    transform: scale(1.1);
+    border: var(--color);
+}
+
+#default-color{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
 .color-btn {
-    margin: 8px 0;
+    margin: 0px 0px;
     border-color: transparent;
-    border-radius: 50%;
-    padding: 5px;
+    border-radius: 0px;
+    padding: 10px 16px;
+}
+.color-btn:hover{
+    border-color: aliceblue;
+    border-radius: 4px;
+    transform: scale(1.3);
+}
+
+#grid {
+    width: 70px;
 }
