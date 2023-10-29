@@ -10,7 +10,8 @@ let color = colorPick.value;
 let dimension = grid.value;
 let clicked = false;
 let autoMode = false;
-let colors = ["#FF0000", "#FF00FF", "#0000FF", "#00FFFF", "#00FF00", "#FFFF00", "#FFFFFF"];
+let errase = false;
+let colors = ["#FF0000", "#FF00FF", "#0000FF", "#00FFFF", "#00FF00", "#FFFF00", "#FFFFFF", "#808080"];
 
 init(16);
 function init(dim){
@@ -23,9 +24,16 @@ function init(dim){
 
 function addEvent(){
     con.addEventListener("mouseover", (e)=>{
-        if ((clicked || autoMode) && e.target.className == "box") {paint(e.target)}});
+        if ((clicked || autoMode) && e.target.className == "box") {
+            if (!errase){
+                paint(e.target);
+            }else{
+                unPaint(e.target);
+            }
+        }
+    });
     btn.addEventListener("click",()=>{
-        if (1 < dimension && dimension <= 50){
+        if (1 < dimension && dimension <= 64){
             con.innerHTML ="";
             createCanvas(dimension);
         }
@@ -50,15 +58,22 @@ function addEvent(){
 }
 
 function clickEvent(){
+    con.oncontextmenu = ()=>{return false};
     con.addEventListener("mousedown", (e)=>{
         e.preventDefault();
         if(e.target.className == "box"){
-            paint(e.target);
+            if(e.button == 2){
+                errase = true;
+                unPaint(e.target);
+            }else{
+                paint(e.target);
+            }
         }
         clicked = true;
     });
     con.addEventListener("mouseup", ()=>{
         clicked = false;
+        errase = false;
     });
 }
 
@@ -81,6 +96,10 @@ function createCanvas(dim){
 function paint(box){
     box.style.backgroundColor = color;
     box.style.outlineColor = "black";
+}
+function unPaint(box){
+    box.style.backgroundColor = "transparent";
+    box.style.outlineColor = "var(--color)";
 }
 
 function configColors(){
